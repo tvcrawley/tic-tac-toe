@@ -19,7 +19,7 @@ $(() => {
     // if index, change value
     gameboard.forEach((piece, index) => {
       // if index equals place on visual board
-      if (index === playerEntry) {
+      if ((index === playerEntry) && (piece === '')) {
         gameboard.splice(index, 1, player)
       }
     })
