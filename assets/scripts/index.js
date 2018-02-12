@@ -93,31 +93,49 @@ $(() => {
 
   addToBoard(8)
   checkWinner()
-  switchPlayer()
-  addToBoard(4)
-  checkWinner()
-  switchPlayer()
-  addToBoard(5)
-  checkWinner()
-  switchPlayer()
-  addToBoard(2)
-  checkWinner()
-  switchPlayer()
-  addToBoard(0)
-  checkWinner()
-  switchPlayer()
-  addToBoard(6)
-  checkWinner()
-  switchPlayer()
-  addToBoard(1)
-  checkWinner()
-  switchPlayer()
-  addToBoard(7)
-  checkWinner()
-  switchPlayer()
-  addToBoard(3)
-  checkWinner()
-  switchPlayer()
+  if (winner === '') {
+    switchPlayer()
+    addToBoard(4)
+    checkWinner()
+  }
+  if (winner === '') {
+    switchPlayer()
+    addToBoard(5)
+    checkWinner()
+  }
+  if (winner === '') {
+    switchPlayer()
+    addToBoard(2)
+    checkWinner()
+  }
+  if (winner === '') {
+    switchPlayer()
+    addToBoard(0)
+    checkWinner()
+  }
+  if (winner === '') {
+    switchPlayer()
+    addToBoard(6)
+    checkWinner()
+  }
+  if (winner === '') {
+    switchPlayer()
+    addToBoard(1)
+    checkWinner()
+  }
+  if (winner === '') {
+    switchPlayer()
+    addToBoard(7)
+    checkWinner()
+  }
+  if (winner === '') {
+    switchPlayer()
+    addToBoard(3)
+    checkWinner()
+  }
+  if (winner === '') {
+    switchPlayer()
+  }
 })
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
