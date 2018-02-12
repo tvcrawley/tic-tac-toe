@@ -9,7 +9,7 @@ $(() => {
 
 $(() => {
   // empty gameboard
-  const gameboard = ['', '', '', '', '', '', '', '', '']
+  let gameboard = ['', '', '', '', '', '', '', '', '']
   let player = 'X'
   let winner = ''
 
@@ -21,10 +21,12 @@ $(() => {
       // if index equals place on visual board
       if ((index === playerEntry) && (piece === '')) {
         gameboard.splice(index, 1, player)
+        return true
+      } else {
+        return false
       }
     })
     console.log(gameboard)
-    return gameboard
   }
 
   // SWITCH PLAYER
@@ -35,7 +37,6 @@ $(() => {
       player = 'X'
     }
     console.log('switchPlayer:', player)
-    return player
   }
 
   // CHECK WINNER
@@ -88,54 +89,64 @@ $(() => {
         }
         break
     }
-    return winner
+    // return winner // "X", "O", "tie", ""
   }
 
-  addToBoard(8)
-  checkWinner()
-  if (winner === '') {
-    switchPlayer()
-    addToBoard(4)
-    checkWinner()
+  // RESET GAME
+  const resetGame = () => {
+    gameboard = ['', '', '', '', '', '', '', '', '']
+    player = 'X'
+    winner = ''
+    console.log('board reset')
   }
-  if (winner === '') {
-    switchPlayer()
-    addToBoard(5)
-    checkWinner()
-  }
-  if (winner === '') {
-    switchPlayer()
-    addToBoard(2)
-    checkWinner()
-  }
-  if (winner === '') {
-    switchPlayer()
-    addToBoard(0)
-    checkWinner()
-  }
-  if (winner === '') {
-    switchPlayer()
-    addToBoard(6)
-    checkWinner()
-  }
-  if (winner === '') {
-    switchPlayer()
-    addToBoard(1)
-    checkWinner()
-  }
-  if (winner === '') {
-    switchPlayer()
-    addToBoard(7)
-    checkWinner()
-  }
-  if (winner === '') {
-    switchPlayer()
-    addToBoard(3)
-    checkWinner()
-  }
-  if (winner === '') {
-    switchPlayer()
-  }
+
+  // addToBoard(8)
+  // checkWinner()
+  // if (winner === '') {
+  //   switchPlayer()
+  //   addToBoard(4)
+  //   checkWinner()
+  // }
+  // if (winner === '') {
+  //   switchPlayer()
+  //   addToBoard(5)
+  //   checkWinner()
+  // }
+  // if (winner === '') {
+  //   switchPlayer()
+  //   addToBoard(2)
+  //   checkWinner()
+  // }
+  // if (winner === '') {
+  //   switchPlayer()
+  //   addToBoard(0)
+  //   checkWinner()
+  // }
+  // if (winner === '') {
+  //   switchPlayer()
+  //   addToBoard(6)
+  //   checkWinner()
+  // }
+  // if (winner === '') {
+  //   switchPlayer()
+  //   addToBoard(1)
+  //   checkWinner()
+  // }
+  // if (winner === '') {
+  //   switchPlayer()
+  //   addToBoard(7)
+  //   checkWinner()
+  // }
+  // if (winner === '') {
+  //   switchPlayer()
+  //   addToBoard(3)
+  //   checkWinner()
+  // }
+  // if (winner === '') {
+  //   switchPlayer()
+  // } else {
+  //   resetGame()
+  // }
 })
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
