@@ -10,27 +10,28 @@ $(() => {
 $(() => {
   // empty gameboard
   const gameboard = ['', '', '', '', '', '', '', '', '']
-  const entry = 'X'
-  const entryPoint = 3
+  let player = 'X'
   // ADD TO BOARD
-  // loop through the board
-  // if index, change value
-  gameboard.forEach((piece, index) => {
-    // if index equals place on visual board
-    if (index === entryPoint) {
-      if (entry === 'X') {
-        return gameboard.splice(index, 1, 'X')
-      } else if (entry === 'O') {
-        return gameboard.splice(index, 1, 'O')
+  const addToBoard = (playerEntry, token) => {
+    // loop through the board
+    // if index, change value
+    gameboard.forEach((piece, index) => {
+      // if index equals place on visual board
+      if (index === playerEntry) {
+        gameboard.splice(index, 1, token)
       }
-    }
-    return gameboard
-  })
-  console.log('gameboard: ', gameboard)
+      return gameboard
+    })
+    console.log(gameboard)
+  }
 
-// next move/switch player
+  addToBoard(8, 'X')
+  addToBoard(4, 'O')
+  addToBoard(1, 'X')
+  addToBoard(5, 'O')
 
-// check winner
+  // SWITCH PLAYER
+  // CHECK WINNER
 })
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
