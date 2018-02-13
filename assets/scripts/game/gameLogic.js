@@ -1,3 +1,5 @@
+'use strict'
+
 // empty gameboard
 let gameboard = ['', '', '', '', '', '', '', '', '']
 let player = 'X'
@@ -17,6 +19,7 @@ const addToBoard = (playerEntry) => {
     }
   })
   console.log(gameboard)
+  return gameboard
 }
 
 // SWITCH PLAYER
@@ -27,6 +30,7 @@ const switchPlayer = () => {
     player = 'X'
   }
   console.log('switchPlayer:', player)
+  return player
 }
 
 // CHECK WINNER
@@ -79,11 +83,11 @@ const checkWinner = () => {
       }
       break
   }
-  // return winner // "X", "O", "tie", ""
+  return winner // "X", "O", "tie", ""
 }
 
 // RESET GAME
-const resetGame = () => {
+const newGame = () => {
   gameboard = ['', '', '', '', '', '', '', '', '']
   player = 'X'
   winner = ''
@@ -135,5 +139,12 @@ const resetGame = () => {
 // if (winner === '') {
 //   switchPlayer()
 // } else {
-//   resetGame()
+//   newGame()
 // }
+
+module.exports = {
+  addToBoard,
+  switchPlayer,
+  checkWinner,
+  newGame
+}
