@@ -17,14 +17,19 @@ const onAddToBoard = function (event) {
     if (value === event.target) {
       if (!store.game.over) {
         gameLogic.addToBoard(index)
-        value.innerHTML = store.game.player
-        gameLogic.checkWinner()
-        if (store.game.winner === '') {
-          gameLogic.switchPlayer()
-        } else if (store.game.winner === 'tie') {
-          $('#message')[0].innerHTML = 'Tie game!'
+        if (value.innerHTML === '') {
+          value.innerHTML = store.game.player
+          gameLogic.checkWinner()
+          if (store.game.winner === '') {
+            gameLogic.switchPlayer()
+            $('#message')[0].innerHTML = `${store.game.player}'s Turn`
+          } else if (store.game.winner === 'tie') {
+            $('#message')[0].innerHTML = 'Tie game!'
+          } else {
+            $('#message')[0].innerHTML = `${store.game.player} wins!`
+          }
         } else {
-          $('#message')[0].innerHTML = `${store.game.player} wins!`
+          $('#message')[0].innerHTML = `Player ${store.game.player}: The space is taken, please choose again`
         }
       }
     }
