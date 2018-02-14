@@ -1,10 +1,11 @@
 'use strict'
 
-const getFormFields = require(`../../../lib/get-form-fields`)
+// const getFormFields = require(`../../../lib/get-form-fields`)
 const gameLogic = require('./gameLogic')
+// const store = require('../store')
 
-const api = require('./api')
-const ui = require('./ui')
+// const api = require('./api')
+// const ui = require('./ui')
 
 const onAddToBoard = function (event) {
   event.preventDefault()
