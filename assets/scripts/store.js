@@ -4,7 +4,8 @@ const store = {
   game: {
     gameboard: ['', '', '', '', '', '', '', '', ''],
     player: 'X',
-    winner: ''
+    winner: '',
+    over: false
   }
 }
 

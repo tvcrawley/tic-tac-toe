@@ -19,7 +19,7 @@ const addToBoard = (playerEntry) => {
       return false
     }
   })
-  console.log(store.game.gameboard)
+  console.log('addToBoard: ', store.game.gameboard)
   return store.game.gameboard
 }
 
@@ -30,7 +30,7 @@ const switchPlayer = () => {
   } else if (store.game.player === 'O') {
     store.game.player = 'X'
   }
-  console.log('switchPlayer:', store.game.player)
+  // console.log('switchPlayer:', store.game.player)
   return store.game.player
 }
 
@@ -50,23 +50,28 @@ const checkWinner = () => {
     case row1:
     case col1:
       store.game.winner = store.game.gameboard[0]
+      store.game.over = true
       console.log(`store.game.player ${store.game.winner} wins!`)
       break
     case diag2:
     case col3:
       store.game.winner = store.game.gameboard[2]
+      store.game.over = true
       console.log(`store.game.player ${store.game.winner} wins!`)
       break
     case row2:
       store.game.winner = store.game.gameboard[3]
+      store.game.over = true
       console.log(`store.game.player ${store.game.winner} wins!`)
       break
     case row3:
       store.game.winner = store.game.gameboard[6]
+      store.game.over = true
       console.log(`store.game.player ${store.game.winner} wins!`)
       break
     case col2:
       store.game.winner = store.game.gameboard[1]
+      store.game.over = true
       console.log(`store.game.player ${store.game.winner} wins!`)
       break
     default:
@@ -75,15 +80,17 @@ const checkWinner = () => {
         // if piece doesn't equal empty string
         if (piece === '') {
           count++
-          console.log('count: ', count)
+          // console.log('count: ', count)
         }
       })
       if (count === 0) {
         store.game.winner = 'tie'
+        store.game.over = true
         console.log('Tie game')
       }
       break
   }
+  // console.log('checkWinner: ', store.game.winner)
   return store.game.winner // "X", "O", "tie", ""
 }
 
