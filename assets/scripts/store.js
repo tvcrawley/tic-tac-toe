@@ -1,12 +1,8 @@
 'use strict'
 
 const store = {
-  game: {
-    gameboard: ['', '', '', '', '', '', '', '', ''],
-    player: 'X',
-    winner: '',
-    over: false
-  }
+  player: 'X',
+  winner: ''
 }
 
 module.exports = store
