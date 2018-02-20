@@ -4,8 +4,8 @@
 const gameLogic = require('./gameLogic')
 const store = require('../store')
 
-// const api = require('./api')
-// const ui = require('./ui')
+const api = require('./api')
+const ui = require('./ui')
 
 const onAddToBoard = function (event) {
   event.preventDefault()
@@ -18,34 +18,41 @@ const onAddToBoard = function (event) {
       if (!store.game.over) {
         gameLogic.addToBoard(index)
         if (value.innerHTML === '') {
-          value.innerHTML = store.game.player
+          value.innerHTML = store.player
           gameLogic.checkWinner()
-          if (store.game.winner === '') {
+          api.updateGame()
+          if (store.winner === '') {
             gameLogic.switchPlayer()
-            $('#message')[0].innerHTML = `${store.game.player}'s Turn`
-          } else if (store.game.winner === 'tie') {
+            $('#message')[0].innerHTML = `${store.player}'s Turn`
+          } else if (store.winner === 'tie') {
             $('#message')[0].innerHTML = 'Tie game!'
           } else {
-            $('#message')[0].innerHTML = `${store.game.player} wins!`
+            $('#message')[0].innerHTML = `${store.player} wins!`
           }
         } else {
-          $('#message')[0].innerHTML = `Player ${store.game.player}: The space is taken, please choose again`
+          $('#message')[0].innerHTML = `Player ${store.player}: The space is taken, please choose again`
         }
       }
     }
   })
+}
 
-  // const data = getFormFields(this)
-  // api.signUp(data)
-  //   .then(ui.signUpSuccess)
-  //   .catch(ui.signUpFailure)
+const onNewGame = function (event) {
+  api.newGame()
+    .then(ui.newGameSuccess)
+    .catch(ui.newGameFailure)
+}
+
+const onGameStats = function (event) {
+  api.gameStats()
+    .then(ui.gameStatsSuccess)
+    .catch(ui.gameStatsFailure)
 }
 
 const addHandlers = () => {
   $('#gameboard').on('click', onAddToBoard)
-  // $('#sign-in').on('submit', onSignIn)
-  // $('#sign-out').on('submit', onSignOut)
-  // $('#change-password').on('submit', onChangePassword)
+  $('#new-game').on('click', onNewGame)
+  $('#game-stats').on('click', onGameStats)
 }
 
 module.exports = {
