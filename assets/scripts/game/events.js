@@ -17,10 +17,10 @@ const onAddToBoard = function (event) {
     if (value === event.target) {
       if (!store.game.over) {
         gameLogic.addToBoard(index)
-        api.updateGame()
         if (value.innerHTML === '') {
           value.innerHTML = store.player
           gameLogic.checkWinner()
+          api.updateGame()
           if (store.winner === '') {
             gameLogic.switchPlayer()
             $('#message')[0].innerHTML = `${store.player}'s Turn`
