@@ -17,6 +17,7 @@ const onAddToBoard = function (event) {
     if (value === event.target) {
       if (!store.game.over) {
         gameLogic.addToBoard(index)
+        api.updateGame()
         if (value.innerHTML === '') {
           value.innerHTML = store.player
           gameLogic.checkWinner()

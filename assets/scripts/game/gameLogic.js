@@ -13,6 +13,7 @@ const addToBoard = (playerEntry) => {
   store.game.cells.forEach((piece, index) => {
     // if index equals place on visual board
     if ((index === playerEntry) && (piece === '')) {
+      store.index = index
       store.game.cells.splice(index, 1, store.player)
       return true
     } else {
