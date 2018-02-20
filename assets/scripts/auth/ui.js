@@ -19,6 +19,12 @@ const signInSuccess = function (data) {
   $('#message').css('background-color', 'green')
   console.log(data)
   store.user = data.user
+  $('.container-fluid:nth-of-type(2)').css('display', 'block')
+  $('form:nth-of-type(3)').css('display', 'block')
+  $('form:nth-of-type(4)').css('display', 'block')
+  $('.btn').css('display', 'inline-block')
+  $('form:nth-of-type(1)').css('display', 'none')
+  $('form:nth-of-type(2)').css('display', 'none')
 }
 
 const signInFailure = function (error) {
@@ -44,6 +50,12 @@ const signOutSuccess = function () {
   $('#message').css('background-color', 'green')
   console.log('Signed out successfully')
   store.user = null
+  $('form:nth-of-type(1)').css('display', 'block')
+  $('form:nth-of-type(2)').css('display', 'block')
+  $('form:nth-of-type(3)').css('display', 'none')
+  $('form:nth-of-type(4)').css('display', 'none')
+  $('.container-fluid:nth-of-type(2)').css('display', 'none')
+  $('.btn').css('display', 'none')
 }
 
 const signOutFailure = function (error) {

@@ -19,3 +19,10 @@ body {
   border-radius: 50px;
   padding: 10%;
 }
+
+.container-fluid:nth-of-type(2),
+form:nth-of-type(3),
+form:nth-of-type(4),
+.btn {
+  display: none;
+}
