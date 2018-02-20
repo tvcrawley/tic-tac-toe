@@ -35,11 +35,6 @@ const onAddToBoard = function (event) {
       }
     }
   })
-
-  // const data = getFormFields(this)
-  // api.signUp(data)
-  //   .then(ui.signUpSuccess)
-  //   .catch(ui.signUpFailure)
 }
 
 const onNewGame = function (event) {
@@ -48,9 +43,16 @@ const onNewGame = function (event) {
     .catch(ui.newGameFailure)
 }
 
+const onGameStats = function (event) {
+  api.gameStats()
+    .then(ui.gameStatsSuccess)
+    .catch(ui.gameStatsFailure)
+}
+
 const addHandlers = () => {
   $('#gameboard').on('click', onAddToBoard)
   $('#new-game').on('click', onNewGame)
+  $('#game-stats').on('click', onGameStats)
 }
 
 module.exports = {
